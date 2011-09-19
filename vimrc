@@ -1,7 +1,7 @@
 " General "{{{
 set nocompatible               " be iMproved
 
-set history=256                " Number of things to remember in history.
+set history=1024               " Number of things to remember in history.
 set timeoutlen=250             " Time to wait after ESC (default causes an annoying delay)
 set clipboard+=unnamed         " Yanks go on clipboard instead.
 set pastetoggle=<F10>          " toggle between paste and normal: for 'safer' pasting from keyboard
@@ -11,15 +11,17 @@ set modeline
 set modelines=5                " default numbers of lines to read for modeline instructions
 
 set autowrite                  " Writes on make/shell commands
-set autoread
+set noautoread                 " Do not automatically read in changes made outside of vim
 
 set nobackup
 set nowritebackup
-set directory=/tmp//           " prepend(^=) $HOME/.tmp/ to default path; use full path as backup filename(//)
+set directory^=/tmp//           " prepend(^=) /tmp/ to default path; use full path as backup filename(//)
 
 set hidden                     " The current buffer can be put to the background without writing to disk
 
 set hlsearch                   " highlight search
+
+set ignorecase                 " ignore case by default
 set smartcase                  " be case sensitive when input has a capital letter
 set incsearch                  " show matches while typing
 
@@ -30,24 +32,22 @@ let mapleader = ','
 " Formatting "{{{
 set fo+=o                      " Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
 set fo-=r                      " Do not automatically insert a comment leader after an enter
-set fo-=t                      " Do no auto-wrap text using textwidth (does not apply to comments)
+"set fo+=t                      " auto-wrap text using textwidth (does not apply to comments)
 
-set nowrap
-set textwidth=0                " Don't wrap lines by default
+set wrap                       " Wrap lines by default
+set textwidth=80
 
 set tabstop=2                  " tab size eql 2 spaces
 set softtabstop=2
 set shiftwidth=2               " default shift width for indents
 set expandtab                  " replace tabs with ${tabstop} spaces
-set smarttab                   "
+set smarttab                   " Use shiftwidth to determine tab behavior at the beginning of lines
 
-set backspace=indent
-set backspace+=eol
-set backspace+=start
+set backspace=indent,eol,start " let me backspace over everything
 
-set autoindent
-set cindent
-set indentkeys-=0#            " do not break indent on #
+set autoindent                 " copy indent mode line-to-line
+set cindent                    " c-style indentations
+set indentkeys-=0#             " do not break indent on #
 set cinkeys-=0#
 set cinoptions=:s,ps,ts,cs
 set cinwords=if,else,while,do
@@ -57,14 +57,15 @@ set cinwords+=for,switch,case
 " Visual "{{{
 syntax on                      " enable syntax
 
-set mouse=a "enable mouse in GUI mode
+set mouse=a                   "enable mouse in GUI mode
 set mousehide                 " Hide mouse after chars typed
 
 set nonumber                  " line numbers Off
 set showmatch                 " Show matching brackets.
 set matchtime=2               " Bracket blinking.
 
-set wildmode=longest,list     " At command line, complete longest common string, then list alternatives.
+set wildmenu                  " Nice autocomplete browsing
+set wildmode=longest:full     " Complete till longest common string, then use wildmenu
 
 set completeopt+=preview
 
@@ -78,13 +79,14 @@ set showcmd                   " display an incomplete command in statusline
 
 set statusline=%<%f\          " custom statusline
 set stl+=[%{&ff}]             " show fileformat
-set stl+=%y%m%r%=
-set stl+=%-14.(%l,%c%V%)\ %P
-
+set stl+=%y%m%r               " type, mode, readonly
+set stl+=%{fugitive#statusline()}%=  " gitalicious
+set stl+=%-14.(%l,%c%V%)\ %P  " depth through file
 
 set foldenable                " Turn on folding
 set foldmethod=marker         " Fold on the marker
-set foldlevel=100             " Don't autofold anything (but I can still fold manually)
+                              " Don't autofold anything (but I can still fold manually)
+set foldlevel=100
 
 set foldopen=block,hor,tag    " what movements open folds
 set foldopen+=percent,mark
@@ -98,6 +100,7 @@ set listchars=tab:\ ·,eol:¬
 set listchars+=trail:·
 set listchars+=extends:»,precedes:«
 map <silent> <F12> :set invlist<CR>
+set invlist
 
 if has('gui_running')
   set guioptions=cMg " console dialogs, do not show menu and toolbar
@@ -129,19 +132,30 @@ nnoremap <leader>rt :tabnew ~/.vim/vimrc<CR>
 nnoremap <leader>re :e ~/.vim/vimrc<CR>
 nnoremap <leader>rd :e ~/.vim/ <CR>
 
+nnoremap <leader>dd :r !date "+** \%+"<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :Gcommit -v<CR>
+
+" ,l = nohighLight
+:map <silent> <leader>l :noh<CR>
+" ,d = use the drawer
+nnoremap <leader>d :NERDTreeToggle<CR>
+
 " Tabs
 nnoremap <leader>n :tabprev<CR>
 nnoremap <leader>m :tabnext<CR>
-" Esc
+
+" double-, acts as escape in insert mode
 inoremap <leader>, <Esc>
 
 " Buffers
 nnoremap <leader>- :bd<CR>
 " Split line(opposite to S-J joining line)
+" marked for deletion
 nnoremap <C-J> gEa<CR><ESC>ew
 
-" map <silent> <C-W>v :vnew<CR>
-" map <silent> <C-W>s :snew<CR>
+nnoremap <leader>v :vnew<CR>
+nnoremap <leader>s :snew<CR>
 
 " copy filename 
 map <silent> <leader>. :let @+=expand('%').':'.line('.')<CR>
@@ -185,6 +199,7 @@ ab #e # encoding: UTF-8
 " AutoCommands " {{{
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab
 au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=markdown
+au BufRead,BufNewFile rebar.config                                    set ft=erlang
 au! BufReadPost       {COMMIT_EDITMSG,*/COMMIT_EDITMSG}               set ft=gitcommit noml list| norm 1G
 au! BufWritePost      *.snippet                                       call ReloadAllSnippets()
 au  WinEnter          *                                               set relativenumber
@@ -199,6 +214,12 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+" It's better than standard netrw
+Bundle 'scrooloose/nerdtree'
+
+" Experimental orgmode support
+Bundle 'jceb/vim-orgmode'
+
 " Colorscheme
 Bundle 'molokai'
 Bundle 'nelstrom/vim-mac-classic-theme.git'
@@ -207,12 +228,15 @@ Bundle 'git@github.com:gmarik/ingretu.git'
 
 if has("gui_running")
   colorscheme ingretu
+else
+  colorscheme desert
 endif
 
 " Programming
 Bundle 'anzaika/go.vim'
 Bundle 'jQuery'
 Bundle 'rails.vim'
+Bundle 'jimenezrick/vimerl.git'
 
 " Snippets
 Bundle 'gh:gmarik/snipmate.vim.git'
@@ -299,12 +323,6 @@ nnoremap <leader>bd  :FufBookmarkDir<CR>
 " Command-T
 Bundle 'wincent/Command-T.git'
 let g:CommandTMatchWindowAtTop=1 " show window at top
-
-" Misc stuff
-Bundle '~/Dropbox/.gitrepos/utilz.vim.git'
-
-" my dev stuff
-Bundle! '~/.vim/grep.git' 
 
 " trying this
 Bundle 'kchmck/vim-coffee-script'
