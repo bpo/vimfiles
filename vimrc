@@ -5,6 +5,7 @@ set history=1024               " Number of things to remember in history.
 set timeoutlen=250             " Time to wait after ESC (default causes an annoying delay)
 set clipboard+=unnamed         " Yanks go on clipboard instead.
 set pastetoggle=<F10>          " toggle between paste and normal: for 'safer' pasting from keyboard
+set shiftround                 " round indent to multiple of 'shiftwidth'
 set tags=./tags;$HOME          " walk directory tree upto $HOME looking for tags
 
 set modeline
@@ -142,11 +143,13 @@ nnoremap <leader>gs :Gcommit -v<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 
 " Tabs
-nnoremap <leader>n :tabprev<CR>
-nnoremap <leader>m :tabnext<CR>
+nnoremap <M-h> :tabprev<CR>
+nnoremap <M-l> :tabnext<CR>
 
+" Esc
 " double-, acts as escape in insert mode
 inoremap <leader>, <Esc>
+inoremap ;; <Esc>
 
 " Buffers
 nnoremap <leader>- :bd<CR>
@@ -202,8 +205,10 @@ au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=mar
 au BufRead,BufNewFile rebar.config                                    set ft=erlang
 au! BufReadPost       {COMMIT_EDITMSG,*/COMMIT_EDITMSG}               set ft=gitcommit noml list| norm 1G
 au! BufWritePost      *.snippet                                       call ReloadAllSnippets()
+if (exists('&relativenumber'))
 au  WinEnter          *                                               set relativenumber
 au  WinLeave          *                                               set norelativenumber
+endif
 " " }}}
 
 " Scripts and Bundles " {{{
@@ -256,6 +261,10 @@ Bundle 'ragtag.vim'
 Bundle 'gmarik/ide-popup.vim'
 Bundle 'gmarik/sudo-gui.vim'
 Bundle 'Gundo'
+
+Bundle 'mkitt/browser-refresh.vim'
+com! ONRRB :au! BufWritePost <buffer> :RRB
+com! NORRB :au! BufWritePost <buffer>
 
 Bundle 'unimpaired.vim'
 " bubble current line
@@ -311,12 +320,8 @@ nnoremap <leader>6  :FufMruFile<CR>
 nnoremap <leader>7  :FufLine<CR>
 nnoremap <leader>9  :FufTaggedFile<CR>
 
-nnoremap <leader>baf  :FufBookmarkFileAdd<CR>
-nnoremap <leader>bf  :FufBookmarkFile<CR>
-
-nnoremap <leader>bad  :FufBookmarkDirAdd<CR>
-nnoremap <leader>bd  :FufBookmarkDir<CR>
-
+nnoremap <leader>p :FufDir ~/src/<CR>
+nnoremap <leader>fr :FufDir ~/.rvm/rubies/<CR>
 
 " " }}}
 
