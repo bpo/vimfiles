@@ -1,15 +1,52 @@
+" interactive line-moving
+noremap <leader>- ddp
+" this doesn't work on the top-line of a document yet.
+noremap <leader>_ ddkP
+
+" highlight a word
+noremap <leader><space> viw
+
+" upper-case the current word
+inoremap <c-u> <esc>viwUea
+nnoremap <leader>u viwU
+
+" Typo fixes
+iabbrev and and
+iabbrev waht what
+iabbrev tehn then
+
+" Kickin shortcuts
+iabbrev @@    bpo@somnambulance.net
+iabbrev ccopy Copyright 2011 Brian P O'Rourke, all rights reserved
+iabbrev ssig --<cr>Brian P O'Rourke<cr>bpo@somnambulance.net
+
+" Quoting things
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+vnoremap <leader>" <esc>a"<esc>gvo<esc>i"<esc>gvo<esc>
+
+" Navigation
+nnoremap H 0
+nnoremap L $
+
+inoremap jk <esc>
+inoremap <esc> <nop>
+
+nnoremap wurl :NERDTree wurl<cr>
+
 " General "{{{
 set nocompatible               " be iMproved
 
 set history=1024               " Number of things to remember in history.
-set timeoutlen=250             " Time to wait after ESC (default causes an annoying delay)
+set timeoutlen=250             " Time to wait after ESC.
 set clipboard+=unnamed         " Yanks go on clipboard instead.
-set pastetoggle=<F10>          " toggle between paste and normal: for 'safer' pasting from keyboard
+set pastetoggle=<F10>          " toggle between paste and normal: for 'safer'
+                               "   pasting from keyboard
 set shiftround                 " round indent to multiple of 'shiftwidth'
-set tags=./tags;$HOME          " walk directory tree upto $HOME looking for tags
+set tags=./tags;$HOME          " local and global tags
 
 set modeline
-set modelines=5                " default numbers of lines to read for modeline instructions
+set modelines=5                " lines to read for modeline instructions
 
 set autowrite                  " Writes on make/shell commands
 set noautoread                 " Do not automatically read in changes made outside of vim
@@ -28,6 +65,7 @@ set incsearch                  " show matches while typing
 
 let g:is_posix = 1             " vim's default is archaic bourne shell, bring it up to the 90s
 let mapleader = ','
+let maplocalleader = "\\"
 " "}}}
 
 " Formatting "{{{
@@ -35,7 +73,7 @@ set fo+=o                      " Automatically insert the current comment leader
 set fo-=r                      " Do not automatically insert a comment leader after an enter
 "set fo+=t                      " auto-wrap text using textwidth (does not apply to comments)
 
-set wrap                       " Wrap lines by default
+set linebreak                  " Wrap lines at words by default
 set textwidth=80
 
 set tabstop=2                  " tab size eql 2 spaces
@@ -126,21 +164,25 @@ endif
 nnoremap <leader>c mz"dyy"dp`z
 vnoremap <leader>c "dymz"dP`z
 
-nnoremap <C-F> <C-U> " swap ^u
-nnoremap <C-U> <C-F> " with ^f : convenience!
 nnoremap <leader>rs :source ~/.vimrc<CR>
 nnoremap <leader>rt :tabnew ~/.vim/vimrc<CR>
-nnoremap <leader>re :e ~/.vim/vimrc<CR>
-nnoremap <leader>rd :e ~/.vim/ <CR>
+nnoremap <leader>re :vsplit ~/.vim/vimrc<CR>
+nnoremap <leader>rd :vsplit ~/.vim/ <CR>
 
 nnoremap <leader>dd :r !date "+** \%+"<CR>
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gs :Gcommit -v<CR>
+nnoremap <leader>gc :Gcommit -v<CR>
+nnoremap <leader>gb :Gblame<CR>
+
+" compiler error buffer for current window
+nnoremap <leader>cm :silent CoffeeMake! \| cwindow 2<CR>
+" live preview of compiled javascript
+nnoremap <leader>cw :CoffeeCompile watch vertical<CR>
 
 " ,l = nohighLight
 :map <silent> <leader>l :noh<CR>
 " ,d = use the drawer
-nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 
 " Tabs
 nnoremap <M-h> :tabprev<CR>
@@ -232,7 +274,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'git@github.com:gmarik/ingretu.git'
 
 if has("gui_running")
-  colorscheme ingretu
+  colorscheme desert
 else
   colorscheme desert
 endif
@@ -249,6 +291,7 @@ Bundle 'gh:gmarik/snipmate.vim.git'
 " Syntax highlight
 Bundle 'cucumber.zip'
 Bundle 'git@github.com:gmarik/vim-markdown.git'
+Bundle 'othree/html5-syntax.vim'
 
 " Git integration
 Bundle 'tpope/vim-git'
@@ -329,6 +372,10 @@ nnoremap <leader>fr :FufDir ~/.rvm/rubies/<CR>
 Bundle 'wincent/Command-T.git'
 let g:CommandTMatchWindowAtTop=1 " show window at top
 
+Bundle 'SWIG-syntax'
+au BufNewFile,BufRead *.i set filetype=swig 
+au BufNewFile,BufRead *.swg set filetype=swig 
+
 " trying this
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'neverland.vim--All-colorschemes-suck'
@@ -341,3 +388,4 @@ Bundle 'rstacruz/sparkup.git', {'rtp': 'vim/'}
 
 filetype plugin indent on      " Automatically detect file types.
 " " }}}
+
