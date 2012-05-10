@@ -18,7 +18,7 @@ iabbrev tehn then
 " Kickin shortcuts
 iabbrev @@    bpo@somnambulance.net
 iabbrev ccopy Copyright 2011 Brian P O'Rourke, all rights reserved
-iabbrev ssig --<cr>Brian P O'Rourke<cr>bpo@somnambulance.net
+iabbrev ssig -- <cr>Brian P O'Rourke<cr>bpo@somnambulance.net
 
 " Quoting things
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
