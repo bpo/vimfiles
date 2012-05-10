@@ -247,10 +247,10 @@ au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=mar
 au BufRead,BufNewFile rebar.config                                    set ft=erlang
 au! BufReadPost       {COMMIT_EDITMSG,*/COMMIT_EDITMSG}               set ft=gitcommit noml list| norm 1G
 au! BufWritePost      *.snippet                                       call ReloadAllSnippets()
-if (exists('&relativenumber'))
-au  WinEnter          *                                               set relativenumber
-au  WinLeave          *                                               set norelativenumber
-endif
+" if (exists('&relativenumber'))
+" au  WinEnter          *                                               set relativenumber
+" au  WinLeave          *                                               set norelativenumber
+" endif
 " " }}}
 
 " Scripts and Bundles " {{{
@@ -362,6 +362,7 @@ nnoremap <leader>5  :FufChangeList<CR>
 nnoremap <leader>6  :FufMruFile<CR>
 nnoremap <leader>7  :FufLine<CR>
 nnoremap <leader>9  :FufTaggedFile<CR>
+nnoremap <leader>t  :FufFile **/<CR>
 
 nnoremap <leader>p :FufDir ~/src/<CR>
 nnoremap <leader>fr :FufDir ~/.rvm/rubies/<CR>
@@ -369,8 +370,8 @@ nnoremap <leader>fr :FufDir ~/.rvm/rubies/<CR>
 " " }}}
 
 " Command-T
-Bundle 'wincent/Command-T.git'
-let g:CommandTMatchWindowAtTop=1 " show window at top
+" Bundle 'wincent/Command-T.git'
+" let g:CommandTMatchWindowAtTop=1 " show window at top
 
 Bundle 'SWIG-syntax'
 au BufNewFile,BufRead *.i set filetype=swig 
