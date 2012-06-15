@@ -169,7 +169,7 @@ nnoremap <leader>rt :tabnew ~/.vim/vimrc<CR>
 nnoremap <leader>re :vsplit ~/.vim/vimrc<CR>
 nnoremap <leader>rd :vsplit ~/.vim/ <CR>
 
-nnoremap <leader>dd :r !date "+** \%+"<CR>
+nnoremap <leader>dd :r !date "+\%+"<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v<CR>
 nnoremap <leader>gb :Gblame<CR>
@@ -219,14 +219,13 @@ nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
 if has('mac')
+  set macmeta
 
-set macmeta
+  " map(range(1,9), 'exec "imap <D-".v:val."> <C-o>".v:val."gt"')
+  " map(range(1,9), 'exec " map <D-".v:val."> ".v:val."gt"')
 
-" map(range(1,9), 'exec "imap <D-".v:val."> <C-o>".v:val."gt"')
-" map(range(1,9), 'exec " map <D-".v:val."> ".v:val."gt"')
-
-" Copy whole line
-nnoremap <silent> <D-c> yy
+  " Copy whole line
+  nnoremap <silent> <D-c> yy
 endif
 
 " Control+S and Control+Q are flow-control characters: disable them in your terminal settings.
@@ -264,33 +263,40 @@ Bundle 'gmarik/vundle'
 " It's better than standard netrw
 Bundle 'scrooloose/nerdtree'
 
-" Experimental orgmode support
+" Fast date manipulation
+Bundle 'tpope/vim-speeddating'
+
+" Orgmode support
 Bundle 'jceb/vim-orgmode'
+
+" Clean tag navigation
+Bundle 'majutsushi/tagbar'
+nmap <F2> :TagbarToggle<CR>
 
 " Colorscheme
 Bundle 'molokai'
-Bundle 'nelstrom/vim-mac-classic-theme.git'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'git@github.com:gmarik/ingretu.git'
+Bundle 'git@github.com:trapd00r/neverland-vim-theme.git'
 
 if has("gui_running")
-  colorscheme desert
+  colorscheme neverland2-darker
 else
-  colorscheme desert
+  " colorscheme ingretu
+  colorscheme neverland2-darker
 endif
 
-" Programming
-Bundle 'anzaika/go.vim'
+" Syntax
+Bundle 'fsouza/go.vim'
 Bundle 'jQuery'
-Bundle 'rails.vim'
+Bundle 'tpope/vim-rails'
 Bundle 'jimenezrick/vimerl.git'
 
 " Snippets
-Bundle 'gh:gmarik/snipmate.vim.git'
+Bundle 'gmarik/snipmate.vim'
 
 " Syntax highlight
 Bundle 'cucumber.zip'
-Bundle 'git@github.com:gmarik/vim-markdown.git'
+Bundle 'hallison/vim-markdown'
 Bundle 'othree/html5-syntax.vim'
 
 " Git integration
@@ -306,8 +312,7 @@ Bundle 'gmarik/sudo-gui.vim'
 Bundle 'Gundo'
 
 Bundle 'mkitt/browser-refresh.vim'
-com! ONRRB :au! BufWritePost <buffer> :RRB
-com! NORRB :au! BufWritePost <buffer>
+map <silent><leader>r :RRB<CR>
 
 Bundle 'unimpaired.vim'
 " bubble current line
@@ -379,7 +384,6 @@ au BufNewFile,BufRead *.swg set filetype=swig
 
 " trying this
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'neverland.vim--All-colorschemes-suck'
 
 Bundle 'int3/vim-extradite'
 Bundle 'thinca/vim-quickrun.git'
