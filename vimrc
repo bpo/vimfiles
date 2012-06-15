@@ -255,28 +255,10 @@ au! BufWritePost      *.snippet                                       call Reloa
 " Scripts and Bundles " {{{
 filetype off
 runtime macros/matchit.vim
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-
-" It's better than standard netrw
-Bundle 'scrooloose/nerdtree'
-
-" Fast date manipulation
-Bundle 'tpope/vim-speeddating'
-
-" Orgmode support
-Bundle 'jceb/vim-orgmode'
+call pathogen#infect()
 
 " Clean tag navigation
-Bundle 'majutsushi/tagbar'
 nmap <F2> :TagbarToggle<CR>
-
-" Colorscheme
-Bundle 'molokai'
-Bundle 'git@github.com:gmarik/ingretu.git'
-Bundle 'git@github.com:trapd00r/neverland-vim-theme.git'
 
 if has("gui_running")
   colorscheme neverland2-darker
@@ -285,36 +267,10 @@ else
   colorscheme neverland2-darker
 endif
 
-" Syntax
-Bundle 'fsouza/go.vim'
-Bundle 'jQuery'
-Bundle 'tpope/vim-rails'
-Bundle 'jimenezrick/vimerl.git'
-
-" Snippets
-Bundle 'gmarik/snipmate.vim'
-
-" Syntax highlight
-Bundle 'cucumber.zip'
-Bundle 'hallison/vim-markdown'
-Bundle 'othree/html5-syntax.vim'
-
-" Git integration
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-fugitive'
-
-" (HT|X)ml tool
-Bundle 'ragtag.vim'
-
-" Utility
-Bundle 'gmarik/ide-popup.vim'
-Bundle 'gmarik/sudo-gui.vim'
-Bundle 'Gundo'
-
-Bundle 'mkitt/browser-refresh.vim'
+" Refresh the running web browser
 map <silent><leader>r :RRB<CR>
 
-Bundle 'unimpaired.vim'
+" Unimpaired mappings
 " bubble current line
 nmap <M-j> ]e
 nmap <M-k> [e
@@ -322,40 +278,7 @@ nmap <M-k> [e
 vmap <M-j> ]egv
 vmap <M-k> [egv
 
-Bundle 'repeat.vim'
-Bundle 'surround.vim'
-
-" Bundle 'SuperTab'
-Bundle 'file-line'
-Bundle 'Align'
-Bundle 'lastpos.vim'
-
-Bundle 'Lokaltog/vim-easymotion'
-let g:EasyMotion_leader_key='<LocalLeader>'
-
-Bundle 'Indent-Guides'
-let g:indent_guides_guide_size = 1
-
-Bundle 'ZoomWin'
-noremap <leader>o :ZoomWin<CR>
-vnoremap <leader>o <C-C>:ZoomWin<CR>
-inoremap <leader>o <C-O>:ZoomWin<CR>
-
-Bundle 'tlib'
-Bundle 'tComment'
-nnoremap // :TComment<CR>
-vnoremap // :TComment<CR>
-
-Bundle 'git@github.com:gmarik/hlmatch.vim.git'
-nnoremap # :<C-u>HlmCword<CR>
-nnoremap <leader># :<C-u>HlmGrepCword<CR>
-vnoremap # :<C-u>HlmVSel<CR>
-vnoremap <leader># :<C-u>HlmGrepVSel<CR>
-
-" FuzzyFinder
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-" FuF customisations "{{{
+" FuzzyFinder customisations "{{{
 let g:fuf_modesDisable = []
 nnoremap <leader>h :FufHelp<CR>
 nnoremap <leader>2  :FufFileWithCurrentBufferDir<CR>
@@ -371,25 +294,11 @@ nnoremap <leader>t  :FufFile **/<CR>
 
 nnoremap <leader>p :FufDir ~/src/<CR>
 nnoremap <leader>fr :FufDir ~/.rvm/rubies/<CR>
-
 " " }}}
 
-" Command-T
-" Bundle 'wincent/Command-T.git'
-" let g:CommandTMatchWindowAtTop=1 " show window at top
-
-Bundle 'SWIG-syntax'
+" SWIG-syntax
 au BufNewFile,BufRead *.i set filetype=swig 
 au BufNewFile,BufRead *.swg set filetype=swig 
-
-" trying this
-Bundle 'kchmck/vim-coffee-script'
-
-Bundle 'int3/vim-extradite'
-Bundle 'thinca/vim-quickrun.git'
-Bundle 'gh:thinca/vim-poslist.git'
-Bundle 'github:mattn/gist-vim.git'
-Bundle 'rstacruz/sparkup.git', {'rtp': 'vim/'}
 
 filetype plugin indent on      " Automatically detect file types.
 " " }}}
