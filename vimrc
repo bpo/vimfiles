@@ -241,7 +241,7 @@ ab #e # encoding: UTF-8
 " " }}}
 
 " AutoCommands " {{{
-au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab
+au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru,*.rabl}     set ft=ruby tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab
 au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=markdown
 au BufRead,BufNewFile rebar.config                                    set ft=erlang
 au! BufReadPost       {COMMIT_EDITMSG,*/COMMIT_EDITMSG}               set ft=gitcommit noml list| norm 1G
