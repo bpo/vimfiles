@@ -210,7 +210,8 @@ map <silent> <leader>< :let @+=expand('%:p:h')<CR>
 
 map <S-CR> A<CR><ESC>
 
-map <leader>E :Explore<CR>
+map <leader>e :Explore<CR>
+map <leader>f :Ack 
 
 " Make Control-direction switch between windows (like C-W h, etc)
 nmap <silent> <C-k> :wincmd k<CR>
