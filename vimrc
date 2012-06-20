@@ -262,10 +262,11 @@ call pathogen#infect()
 nmap <F2> :TagbarToggle<CR>
 
 if has("gui_running")
-  colorscheme neverland2-darker
+  colorscheme solarized
+  set background=dark
 else
   " colorscheme ingretu
-  colorscheme neverland2-darker
+  colorscheme solarized
 endif
 
 " Refresh the running web browser
