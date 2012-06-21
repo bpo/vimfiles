@@ -201,7 +201,7 @@ nnoremap <leader>- :bd<CR>
 nnoremap <C-J> gEa<CR><ESC>ew
 
 nnoremap <leader>v :vnew<CR>
-nnoremap <leader>s :snew<CR>
+nnoremap <leader>s :split<CR>
 
 " copy filename 
 map <silent> <leader>. :let @+=expand('%').':'.line('.')<CR>
