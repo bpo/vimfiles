@@ -293,7 +293,8 @@ nnoremap <leader>5  :FufChangeList<CR>
 nnoremap <leader>6  :FufMruFile<CR>
 nnoremap <leader>7  :FufLine<CR>
 nnoremap <leader>9  :FufTaggedFile<CR>
-nnoremap <leader>t  :FufFile **/<CR>
+nnoremap <leader>x  :FufFile ~/stvp/**/<CR>
+nnoremap <leader>w  :FufFile ~/wurl/**/<CR>
 
 nnoremap <leader>p :FufDir ~/src/<CR>
 nnoremap <leader>fr :FufDir ~/.rvm/rubies/<CR>
