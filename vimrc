@@ -248,6 +248,8 @@ au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=mar
 au BufRead,BufNewFile rebar.config                                    set ft=erlang
 au! BufReadPost       {COMMIT_EDITMSG,*/COMMIT_EDITMSG}               set ft=gitcommit noml list| norm 1G
 au! BufWritePost      *.snippet                                       call ReloadAllSnippets()
+
+command! Marked silent !open -a "Marked.app" '%:p'
 " if (exists('&relativenumber'))
 " au  WinEnter          *                                               set relativenumber
 " au  WinLeave          *                                               set norelativenumber
