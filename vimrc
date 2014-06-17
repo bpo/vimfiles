@@ -41,6 +41,8 @@ nnoremap L $
 inoremap jk <esc>
 inoremap <esc> <nop>
 
+nnoremap xxd :%!xxd<cr>
+nnoremap xxr :%!xxd -r<cr>
 
 " General "{{{
 set nocompatible               " be iMproved
