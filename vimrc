@@ -41,7 +41,6 @@ nnoremap L $
 inoremap jk <esc>
 inoremap <esc> <nop>
 
-nnoremap wurl :NERDTree wurl<cr>
 
 " General "{{{
 set nocompatible               " be iMproved
