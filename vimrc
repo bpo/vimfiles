@@ -12,6 +12,9 @@ noremap <leader>h :cp!<CR><CR>
 " highlight a word
 noremap <leader><space> viw
 
+" duplicate the contents of a single line.
+noremap <leader>kk v$hhy$p
+
 " upper-case the current word
 inoremap <c-u> <esc>viwUea
 nnoremap <leader>u viwU
