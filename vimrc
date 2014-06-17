@@ -44,6 +44,9 @@ inoremap <esc> <nop>
 nnoremap xxd :%!xxd<cr>
 nnoremap xxr :%!xxd -r<cr>
 
+vmap > >gv
+vmap < <gv
+
 " General "{{{
 set nocompatible               " be iMproved
 
