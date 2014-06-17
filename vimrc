@@ -321,6 +321,9 @@ nnoremap <leader>fr :FufDir ~/.rvm/rubies/<CR>
 au BufNewFile,BufRead *.i set filetype=swig 
 au BufNewFile,BufRead *.swg set filetype=swig 
 
+" Cfengine syntax
+"au BufRead,BufNewFile *.cf set ft=cf3
+
 filetype plugin indent on      " Automatically detect file types.
 " " }}}
 
