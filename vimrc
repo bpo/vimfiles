@@ -47,6 +47,8 @@ nnoremap xxr :%!xxd -r<cr>
 vmap > >gv
 vmap < <gv
 
+nnoremap <F5> :GundoToggle<CR>
+
 " General "{{{
 set nocompatible               " be iMproved
 
