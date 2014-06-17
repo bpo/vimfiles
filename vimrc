@@ -6,6 +6,9 @@ noremap <leader>_ ddkP
 " use ack instead of grep
 set grepprg=ack
 
+noremap <leader>j :cn!<CR><CR>
+noremap <leader>h :cp!<CR><CR>
+
 " highlight a word
 noremap <leader><space> viw
 
