@@ -3,6 +3,9 @@ noremap <leader>- ddp
 " this doesn't work on the top-line of a document yet.
 noremap <leader>_ ddkP
 
+" use ack instead of grep
+set grepprg=ack
+
 " highlight a word
 noremap <leader><space> viw
 
