@@ -188,7 +188,7 @@ nnoremap <leader>dd :r !date "+\%+"<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v<CR>
 nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>json :%:!ruby -r 'json' -e 'jj JSON.parse gets'<CR>
+nnoremap <leader>jt :%:!ruby -r 'json' -e 'jj JSON.parse gets'<CR>
 
 " compiler error buffer for current window
 nnoremap <leader>cm :silent CoffeeMake! \| cwindow 2<CR>
