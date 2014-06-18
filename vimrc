@@ -291,8 +291,6 @@ au BufNewFile,BufRead *.swg set filetype=swig
 " cfengine support
 au BufRead,BufNewFile *.cf set ft=cf3
 
-filetype plugin indent on      " Automatically detect file types.
-
 " " }}}
 
 " Scripts and Bundles " {{{
@@ -306,4 +304,6 @@ if has("gui_running")
 else
   colorscheme solarized
 endif
+
+filetype plugin indent on      " Automatically detect file types.
 " " }}}
