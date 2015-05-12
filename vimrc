@@ -302,12 +302,8 @@ filetype off
 runtime macros/matchit.vim
 call pathogen#infect()
 
-if has("gui_running")
-  colorscheme solarized
-  set background=dark
-else
-  colorscheme solarized
-endif
+colorscheme solarized
+set background=dark
 
 filetype plugin indent on      " Automatically detect file types.
 " " }}}
