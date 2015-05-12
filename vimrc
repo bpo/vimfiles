@@ -157,6 +157,10 @@ nmap <F5> :GundoToggle<CR>
 " drawer
 nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 
+" fullscreen
+" workaround for https://code.google.com/p/macvim/issues/detail?id=512
+nnoremap <silent> <leader>m :set fu<CR>:set lines=999<CR>
+
 " tabs
 nnoremap <M-h> :tabprev<CR>
 nnoremap <M-l> :tabnext<CR>
