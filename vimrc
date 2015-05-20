@@ -225,7 +225,6 @@ inoremap <c-u> <esc>viwUea
 nnoremap <leader>u viwU
 
 " typo fixes
-iab adn and
 iab waht what
 iab tehn then
 
