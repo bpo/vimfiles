@@ -47,6 +47,7 @@ set fo+=t                      " auto-wrap text using textwidth (does not apply 
 
 set linebreak                  " Wrap lines at words by default
 set textwidth=80
+set scrolloff=10               " Minimal number of lines to keep around the cursor
 
 set tabstop=2                  " tab size eql 2 spaces
 set softtabstop=2
