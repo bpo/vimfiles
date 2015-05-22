@@ -29,6 +29,8 @@ set incsearch                  " show matches while typing
 
 set grepprg=ack                " use ack instead of grep
 
+set foldcolumn=1               " left margin
+
 let g:is_posix = 1             " vim's default is archaic bourne shell, bring it up to the 90s
 
 let mapleader = ','
