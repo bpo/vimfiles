@@ -240,6 +240,9 @@ vnoremap <leader>" <esc>a"<esc>gvo<esc>i"<esc>gvo<esc>
 vmap > >gv
 vmap < <gv
 
+" cd to the current file's directory
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
 " copy filename 
 map <silent> <leader>. :let @+=expand('%').':'.line('.')<CR>
 " copy path
