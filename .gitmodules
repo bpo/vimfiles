@@ -76,3 +76,6 @@
 [submodule "bundle/rust"]
 	path = bundle/rust
 	url = git://github.com/wting/rust.vim.git
+[submodule "bundle/elm-vim"]
+	path = bundle/elm-vim
+	url = git@github.com:ElmCast/elm-vim.git
