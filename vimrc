@@ -27,7 +27,8 @@ set ignorecase                 " ignore case by default
 set smartcase                  " be case sensitive when input has a capital letter
 set incsearch                  " show matches while typing
 
-set grepprg=ack                " use ack instead of grep
+set grepprg=ag\ --vimgrep\ $*  " use ag instead of grep
+set grepformat=%f:%l%c%m
 
 set foldcolumn=1               " left margin
 
@@ -187,7 +188,7 @@ nmap <silent> <C-l> :wincmd l<CR>
 let g:fuf_modesDisable = []
 nnoremap <leader>h :FufHelp<CR>
 nnoremap <leader>2  :FufFileWithCurrentBufferDir<CR>
-nnoremap <leader>@  :FufFile<CR>
+nnoremap <leader>q  :FufFile **/<CR>
 nnoremap <leader>3  :FufBuffer<CR>
 nnoremap <leader>4  :FufDirWithCurrentBufferDir<CR>
 nnoremap <leader>$  :FufDir<CR>
@@ -195,10 +196,10 @@ nnoremap <leader>5  :FufChangeList<CR>
 nnoremap <leader>6  :FufMruFile<CR>
 nnoremap <leader>7  :FufLine<CR>
 nnoremap <leader>9  :FufTaggedFile<CR>
-nnoremap <leader>w  :FufFile ~/wurl/**/<CR>
 
 nnoremap <leader>p :FufDir ~/src/<CR>
 nnoremap <leader>fr :FufDir ~/.rvm/rubies/<CR>
+"}}}
 
 " Text Support
 
@@ -263,9 +264,7 @@ nmap <leader>jt :%:!ruby -r 'json' -e 'jj JSON.parse gets'<CR>
 map <leader>e :Explore<CR>
 map <leader>f :Ack 
 
-nnoremap <leader>rs :source ~/.vimrc<CR>
-nnoremap <leader>re :vsplit ~/.vim/vimrc<CR>
-nnoremap <leader>rd :vsplit ~/.vim/ <CR>
+nnoremap <leader>ev :vsplit ~/.vim/vimrc<CR>
 
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v<CR>
@@ -280,9 +279,16 @@ nnoremap <leader>cw :CoffeeCompile watch vertical<CR>
 command! Marked silent !open -a "Marked.app" '%:p'
 
 " Refresh the running web browser
-map <silent><leader>r :RRB<CR>
+map <silent><leader>w :RRB<CR>
 
-" " }}}
+" Automatic import-handling for Go
+let g:go_fmt_command = "goimports"
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+" /Key Mappings }}}
 
 " AutoCommands " {{{
 au BufRead,BufNewFile {Gemfile,Rakefile,Guardfile,Vagrantfile,Capfile,Rules,*.rake,config.ru,*.rabl,*.prawn}     set ft=ruby tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab
