@@ -132,6 +132,7 @@ if has('gui_running')
     set noantialias
     " set fullscreen
     set fuoptions=maxvert,maxhorz ",background:#00AAaaaa
+    let g:utl_cfg_hdl_scm_http_system = "!open '%u'"
   endif
 endif
 " "}}}
