@@ -187,7 +187,7 @@ nmap <silent> <C-l> :wincmd l<CR>
 
 " FuzzyFinder customisations "{{{
 let g:fuf_modesDisable = []
-nnoremap <leader>h :FufHelp<CR>
+nnoremap <leader>help :FufHelp<CR>
 nnoremap <leader>2  :FufFileWithCurrentBufferDir<CR>
 nnoremap <leader>q  :FufFile **/<CR>
 nnoremap <leader>3  :FufBuffer<CR>
