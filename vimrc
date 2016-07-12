@@ -213,10 +213,6 @@ map <S-CR> A<CR><ESC>
 " highlight a word
 noremap <leader><space> viw
 
-" duplication
-nnoremap <leader>c mz"dyy"dp`z
-vnoremap <leader>c "dymz"dP`z
-
 " move current line
 nmap <M-j> ]e
 nmap <M-k> [e
