@@ -38,7 +38,7 @@ let mapleader = ','
 let maplocalleader = "\\"
 
 if has('mac')
-  set macmeta                  " mac-style meta keys
+  " set macmeta                  " mac-style meta keys
 endif
 
 " "}}}
