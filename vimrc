@@ -160,7 +160,7 @@ nmap <F4> :cl<CR>
 nmap <F5> :GundoToggle<CR>
 
 " drawer
-nnoremap <silent> <leader>d :NERDTreeToggle<CR>
+nnoremap <silent> <leader><Tab> :NERDTreeToggle<CR>
 
 " fullscreen
 " workaround for https://code.google.com/p/macvim/issues/detail?id=512
