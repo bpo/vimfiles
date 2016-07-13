@@ -174,11 +174,6 @@ map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
 
-" buffers
-nnoremap <leader>x :bd<CR>
-nnoremap <leader>v :vnew<CR>
-nnoremap <leader>s :split<CR>
-
 " Make Control-direction switch between windows (like C-W h, etc)
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
