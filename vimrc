@@ -30,7 +30,7 @@ set incsearch                  " show matches while typing
 set grepprg=ag\ --vimgrep\ $*  " use ag instead of grep
 set grepformat=%f:%l%c%m
 
-set foldcolumn=1               " left margin
+set foldcolumn=0               " left margin fold counts
 
 let g:is_posix = 1             " vim's default is archaic bourne shell, bring it up to the 90s
 
