@@ -289,10 +289,10 @@ au BufRead,BufNewFile rebar.config                                    set ft=erl
 au! BufReadPost       {COMMIT_EDITMSG,*/COMMIT_EDITMSG}               set ft=gitcommit noml list| norm 1G
 au! BufWritePost      *.snippet                                       call ReloadAllSnippets()
 
-" if (exists('&relativenumber'))
-" au  WinEnter          *                                               set relativenumber
-" au  WinLeave          *                                               set norelativenumber
-" endif
+if (exists('&relativenumber'))
+  au  WinEnter          *                                               set relativenumber number
+  au  WinLeave          *                                               set norelativenumber nonumber
+endif
 
 " swig support
 au BufNewFile,BufRead *.i set filetype=swig 
