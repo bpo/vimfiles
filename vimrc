@@ -308,8 +308,7 @@ filetype off
 runtime macros/matchit.vim
 call pathogen#infect()
 
-colorscheme solarized
-set background=dark
+colorscheme smyck
 
 filetype plugin indent on      " Automatically detect file types.
 " " }}}
