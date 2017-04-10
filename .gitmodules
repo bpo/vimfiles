@@ -82,3 +82,6 @@
 [submodule "bundle/calendar-vim"]
 	path = bundle/calendar-vim
 	url = git@github.com:mattn/calendar-vim.git
+[submodule "bundle/vim-colors-smyck"]
+	path = bundle/vim-colors-smyck
+	url = https://github.com/slindberg/vim-colors-smyck.git
