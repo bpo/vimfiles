@@ -1,87 +1,27 @@
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "bundle/vim-speeddating"]
-	path = bundle/vim-speeddating
-	url = https://github.com/tpope/vim-speeddating.git
-[submodule "bundle/vim-git"]
-	path = bundle/vim-git
-	url = https://github.com/tpope/vim-git.git
-[submodule "bundle/tagbar"]
-	path = bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
-[submodule "bundle/vimerl"]
-	path = bundle/vimerl
-	url = https://github.com/jimenezrick/vimerl.git
-[submodule "bundle/vim-rails"]
-	path = bundle/vim-rails
-	url = https://github.com/tpope/vim-rails.git
-[submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
+[submodule "pack/plugins/start/sensible"]
+	path = pack/plugins/start/sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule "pack/plugins/start/go"]
+	path = pack/plugins/start/go
+	url = https://github.com/fatih/vim-go.git
+[submodule "pack/themes/opt/snow"]
+	path = pack/themes/opt/snow
+	url = https://github.com/nightsense/snow.git
+[submodule "pack/themes/opt/solarized8"]
+	path = pack/themes/opt/solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
+[submodule "pack/plugins/start/splitjoin"]
+	path = pack/plugins/start/splitjoin
+	url = https://github.com/AndrewRadev/splitjoin.vim.git
+[submodule "pack/themes/opt/tender"]
+	path = pack/themes/opt/tender
+	url = https://github.com/jacoborus/tender.vim.git
+[submodule "pack/plugins/start/fugitive"]
+	path = pack/plugins/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/neverland-vim-theme"]
-	path = bundle/neverland-vim-theme
-	url = git@github.com:trapd00r/neverland-vim-theme.git
-[submodule "bundle/vim-unimpaired"]
-	path = bundle/vim-unimpaired
-	url = git@github.com:tpope/vim-unimpaired.git
-[submodule "bundle/SWIG-syntax"]
-	path = bundle/SWIG-syntax
-	url = https://github.com/vim-scripts/SWIG-syntax.git
-[submodule "bundle/jQuery"]
-	path = bundle/jQuery
-	url = https://github.com/vim-scripts/jQuery.git
-[submodule "bundle/vim-markdown"]
-	path = bundle/vim-markdown
-	url = https://github.com/hallison/vim-markdown.git
-[submodule "bundle/vim-ragtag"]
-	path = bundle/vim-ragtag
-	url = https://github.com/tpope/vim-ragtag.git
-[submodule "bundle/sudo-gui.vim"]
-	path = bundle/sudo-gui.vim
-	url = https://github.com/gmarik/sudo-gui.vim.git
-[submodule "bundle/browser-refresh.vim"]
-	path = bundle/browser-refresh.vim
-	url = https://github.com/mkitt/browser-refresh.vim.git
-[submodule "bundle/FuzzyFinder"]
-	path = bundle/FuzzyFinder
-	url = https://github.com/vim-scripts/FuzzyFinder.git
-[submodule "bundle/L9"]
-	path = bundle/L9
-	url = https://github.com/vim-scripts/L9.git
-[submodule "bundle/vim-coffee-script"]
-	path = bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "bundle/gist-vim"]
-	path = bundle/gist-vim
-	url = https://github.com/mattn/gist-vim.git
-[submodule "bundle/vim-orgmode"]
-	path = bundle/vim-orgmode
-	url = https://github.com/jceb/vim-orgmode.git
-[submodule "bundle/solarized"]
-	path = bundle/solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "bundle/gundo.vim"]
-	path = bundle/gundo.vim
-	url = git://github.com/sjl/gundo.vim.git
-[submodule "bundle/mustache"]
-	path = bundle/mustache
-	url = git://github.com/mustache/vim-mustache-handlebars.git
-[submodule "bundle/rust"]
-	path = bundle/rust
-	url = git://github.com/wting/rust.vim.git
-[submodule "bundle/elm-vim"]
-	path = bundle/elm-vim
-	url = git@github.com:ElmCast/elm-vim.git
-[submodule "bundle/vim-go"]
-	path = bundle/vim-go
-	url = git@github.com:fatih/vim-go.git
-[submodule "bundle/ag.vim"]
-	path = bundle/ag.vim
-	url = git@github.com:rking/ag.vim.git
-[submodule "bundle/calendar-vim"]
-	path = bundle/calendar-vim
-	url = git@github.com:mattn/calendar-vim.git
-[submodule "bundle/vim-colors-smyck"]
-	path = bundle/vim-colors-smyck
-	url = https://github.com/slindberg/vim-colors-smyck.git
+[submodule "pack/plugins/start/ctrlp"]
+	path = pack/plugins/start/ctrlp
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "pack/plugins/start/ultisnips"]
+	path = pack/plugins/start/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
